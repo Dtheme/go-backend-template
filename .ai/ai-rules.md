@@ -32,6 +32,7 @@ project-root/
 ├── docs/spec-graph/                # 可选 spec+graph 工作流的理论与落地说明
 ├── .ai/                            # 共享 AI 资产（Claude Code 与 Codex 共用）
 │   ├── ai-rules.md                 # 本文件（行为准则单源）
+│   ├── memory.md                   # 工程记忆：已验证的事实、踩过的坑、待验证
 │   └── skills/                     # 自定义 Skills
 ├── .claude/                        # Claude Code：settings.json（预授权 + PostToolUse 格式检查 Hook）、agents/（spec-reviewer、spec-implementer）、skills -> ../.ai/skills
 ├── .codex/config.toml              # Codex 配置
@@ -52,6 +53,7 @@ project-root/
 - `.claude/settings.json`、`.claude/agents/**`、`.codex/config.toml`、`.gitignore` — AI 可修改，但新增预授权命令、Hook、Subagent 或忽略项要在变更说明中告知用户。
 - `Specs/technical/{version}/graph.json` — 只能通过 `spec-graph` 命令写入，不手工编辑；它记录执行阶段与证据身份，不记录用户决定。
 - `.ai/ai-rules.md` — 项目规则演进时可更新，但不得删除「文件权限规则」「AI 工作流」「验证」三节的约束。
+- `.ai/memory.md` — AI 维护，只写已经被验证的结论。三个章节标题不得删除，`spec-check` 会检查。
 - `.ai/skills/{自研 Skill}/**` — AI 可按真实需要修改，改动要在 Skill 内保持步骤自洽。
 - `.ai/skills/{第三方 Skill}/**`（目录内含 `SOURCE.md`）— **AI 禁止修改**，只能整目录升级并更新 `SOURCE.md`。
 
@@ -175,6 +177,7 @@ AI 需要执行构建、测试或接口验证前，先确认对应能力可用�
 5. `README.md` — 路由、配置、命令有变化时同步
 6. 技术方案「测试计划」回写为实际落地的测试清单（文件与用例名），作为下一版本的回归基线
 7. 技术方案「交付状态」改为 `stage: delivered`；`make check` 中的 `spec-check` 会拒绝 `user_acceptance` 未 `confirmed` 或 `review` 为 `pending` / `changes_required` 的 delivered
+8. `.ai/memory.md` — 本版本如果出现了被验证推翻的假设、靠人反复提醒才没做错的步骤，或验证后确认的非显然事实，各记一条；没有就不写
 
 ---
 
@@ -187,6 +190,25 @@ AI 需要执行构建、测试或接口验证前，先确认对应能力可用�
 3. 修改后跑 `make check`；触及外部依赖时跑 `make test-integration`；接口行为有变化时再跑 `make smoke` 和 `api-verify` 对应接口
 4. 更新 `技术讲解.md`（改动影响技术全景时）；涉及某版本功能时同步对应 `技术方案.md`；接口变化同步 Postman 集合
 5. 涉及新增包、公共函数或成段新代码时，动手前先扫现有公共实现，遵循 DRY 红线
+6. 修复过程中如果推翻了原先的判断，或发现一个不看代码就会重复踩的坑，在 `.ai/memory.md` 记一条
+
+---
+
+## 持续学习
+
+新会话不会继承上一轮的判断。`.ai/memory.md` 负责把该继承的东西留下来，`spec-check` 检查它的三个章节存在。
+
+写什么：
+
+- **已验证的事实**：非显然、且被命令或测试证实过的结论。每条注明被什么验证。
+- **踩过的坑**：真实发生过的错误，写清代价和下次怎么避免。
+- **待验证**：有依据但还没跑过的判断。验证后移到前两节，被推翻就删掉并在「踩过的坑」补一条。
+
+不写什么：进度、待办、临时讨论、还没验证的猜测、密钥，以及读代码就能直接看出来的事实。记忆文件长到没人读，就失去作用。
+
+什么时候写：Step 7 收尾时，以及日常修改中推翻了原先判断时。一条都没有就不写，不要为了填充而编。
+
+条目过期时直接删除或改写，不要保留互相矛盾的两条。
 
 ---
 
@@ -279,7 +301,7 @@ AI 需要执行构建、测试或接口验证前，先确认对应能力可用�
 | 命令 | 内容 | 何时跑 |
 | --- | --- | --- |
 | `make check` | `go vet` + 单元测试 + gofmt 检查 + `spec-check` | 每次代码改动后（必需） |
-| `make spec-check` | 单独运行 Spec 一致性检查 | 改动 Specs 文档后 |
+| `make spec-check` | 单独运行 Spec 一致性检查（含 `.ai/memory.md` 章节） | 改动 Specs 文档或工程记忆后 |
 | `make spec-init VERSION=x.y.z` | 由模版生成该版本技术方案，要求人工需求已存在 | Step 4 |
 | `go run ./cmd/spec-graph <init|status|record|finding|event|check> {version}` | 可选：版本生命周期状态图 | 启用 `spec-graph-workflow` 时 |
 | `make test-integration` | `-tags integration` 集成测试 | 版本自验、触及外部依赖时（必需） |

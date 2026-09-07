@@ -29,12 +29,15 @@ var requiredFiles = []string{
 	"Specs/technical/技术讲解.md",
 	"Specs/technical/技术方案模版.md",
 	".ai/ai-rules.md",
+	".ai/memory.md",
 	"Makefile",
 }
 
 var rulesHeadings = []string{"## 文件权限规则", "## AI 工作流（版本开发）", "## 验证命令"}
 
 var overviewHeadings = []string{"## 目录结构", "## 接口清单", "## 测试策略", "## 已知问题与待优化项"}
+
+var memoryHeadings = []string{"## 已验证的事实", "## 踩过的坑", "## 待验证"}
 
 var requiredSymlinks = map[string]string{
 	"CLAUDE.md":      ".ai/ai-rules.md",
@@ -120,6 +123,8 @@ func (c *checker) checkRequiredFiles() error {
 			c.checkHeadings(rel, data, rulesHeadings, true)
 		case "Specs/technical/技术讲解.md":
 			c.checkHeadings(rel, data, overviewHeadings, false)
+		case ".ai/memory.md":
+			c.checkHeadings(rel, data, memoryHeadings, false)
 		}
 	}
 	return nil

@@ -45,6 +45,7 @@ func newFixture(t *testing.T) string {
 		"Specs/technical/技术讲解.md":        "## 目录结构\n\n## 接口清单\n\n## 测试策略\n\n## 已知问题与待优化项\n",
 		"Specs/technical/技术方案模版.md":      "# 模版",
 		".ai/ai-rules.md":                "## 文件权限规则\n\n## AI 工作流（版本开发）\n\n## 验证命令\n",
+		".ai/memory.md":                  "## 已验证的事实\n\n## 踩过的坑\n\n## 待验证\n",
 		"Makefile":                       "check:\n",
 		"Specs/requirements/0.1.0/需求.md": "### F-0.1.0-001 x\n",
 		"Specs/technical/0.1.0/技术方案.md":  validPlan,

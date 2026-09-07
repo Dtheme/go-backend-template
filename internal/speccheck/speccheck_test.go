@@ -76,6 +76,7 @@ func newFixture(t *testing.T) string {
 		"Specs/technical/技术讲解.md":                  fixtureOverview,
 		"Specs/technical/技术方案模版.md":                "# 模版",
 		".ai/ai-rules.md":                          fixtureRules,
+		".ai/memory.md":                            fixtureMemory,
 		"Makefile":                                 "check:\n",
 		"Specs/requirements/0.1.0/需求.md":           fixtureRequirement,
 		"Specs/technical/0.1.0/技术方案.md":            fixtureTechnicalPlan,
@@ -168,6 +169,7 @@ func TestRun_RequiredFiles(t *testing.T) {
 		"Specs/technical/技术讲解.md",
 		"Specs/technical/技术方案模版.md",
 		".ai/ai-rules.md",
+		".ai/memory.md",
 		"Makefile",
 	} {
 		t.Run(rel, func(t *testing.T) {
@@ -176,6 +178,36 @@ func TestRun_RequiredFiles(t *testing.T) {
 			assertProblem(t, mustRun(t, root), rel, "缺少必需文件")
 		})
 	}
+}
+
+const fixtureMemory = `# 工程记忆
+
+## 已验证的事实
+
+- 无
+
+## 踩过的坑
+
+- 无
+
+## 待验证
+
+- 无
+`
+
+func TestRun_MemoryHeadings(t *testing.T) {
+	for _, h := range []string{"## 已验证的事实", "## 踩过的坑", "## 待验证"} {
+		t.Run(h, func(t *testing.T) {
+			root := newFixture(t)
+			writeFile(t, root, ".ai/memory.md", strings.Replace(fixtureMemory, h, "## 别的标题", 1))
+			assertProblem(t, mustRun(t, root), ".ai/memory.md", "缺少章节「"+h+"」")
+		})
+	}
+	t.Run("围栏内不计数", func(t *testing.T) {
+		root := newFixture(t)
+		writeFile(t, root, ".ai/memory.md", "# 工程记忆\n\n```md\n## 已验证的事实\n## 踩过的坑\n## 待验证\n```\n")
+		assertProblem(t, mustRun(t, root), ".ai/memory.md", "缺少章节「## 已验证的事实」")
+	})
 }
 
 func TestRun_RulesHeadings(t *testing.T) {
