@@ -1,9 +1,18 @@
+# 构建产物
 bin/
 *.test
+*.out
+*.prof
+coverage.*
+
+# 编辑器与系统
 .DS_Store
+._*
+.idea/
+.vscode/
 
 # 本仓库需要提交 Claude Code 配置（Hook、Subagent、skills 链接），
-# 覆盖 ~/.gitignore_global 里对 .claude 的整目录忽略。
+# 覆盖 ~/.gitignore_global 对 .claude 的整目录忽略。
 !.claude/
 !.claude/**
 .claude/settings.local.json

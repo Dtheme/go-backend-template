@@ -159,7 +159,6 @@ go list -f '{{.ImportPath}}: {{join .Imports " "}}' ./cmd/api ./internal/config 
 - `withRecover` 在 `withRequestLog` 外层，panic 会绕过后者末尾的 `logger.Info`，panic 的请求只有 `panic recovered` 一行，没有 `request` 行。
 - `ErrAlreadyExists` 没有单独映射成 409，走 `default` 分支返回 500；技术方案「风险与回滚」写明 48 位随机 ID 的冲突概率可忽略，这是有意的选择。
 - `config.Load` 对非法 `SHUTDOWN_TIMEOUT` 静默回退，没有日志。
-- `docs/spec-graph/理论.md` 与 `docs/spec-graph/落地.md` 已存在但尚未被 git 跟踪，`git status` 为 `??`；技术讲解与 README 对 `docs/spec-graph/落地.md` 的引用、`.ai/ai-rules.md` 对 `docs/spec-graph/` 的引用在工作区内都有落点，提交前 clone 副本里仍会缺失。
 - `1.0.0` 停在 graph stage `verifying`、revision 46，技术方案交付状态为 `user_acceptance: pending`，上面的代码是已通过全部门禁但尚未交付的候选。
 
 新增一个领域的顺序与 `1.0.0` 相同：先建 `internal/{domain}/` 放类型、规则与 `Repository`，再建 `internal/{storage}/` 实现它，然后在 `NewHandler` 注册路由，最后在 `main.go` 装配。改完重跑上面那条 `go list`，箭头方向不变才算落位。
