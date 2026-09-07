@@ -82,3 +82,7 @@ GET  /v1/notes/{id}  200，或 404 {"error":{"code":"not_found","message":"note 
 ## 文档
 
 18 篇详解：[docs/guide/](docs/guide/)，在线阅读版见 [飞书文档](https://ncnhrkchbfwf.feishu.cn/wiki/SVHxwROhfiYBE2k2I35cJ0IUnYe)。
+
+## 许可证
+
+MIT，`.ai/skills/go-development/` 除外。该目录内置自 [netresearch/go-development-skill](https://github.com/netresearch/go-development-skill)：代码与脚本是 MIT，20 篇 references 文档是 CC-BY-SA-4.0，著作权归 Netresearch DTT GmbH。改动这些文档后仍须保持 CC-BY-SA-4.0 并署名。固定版本与逐文件校验和在它的 `SOURCE.md` 里。不想承担 share-alike 义务，删掉这个目录即可。

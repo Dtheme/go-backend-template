@@ -82,3 +82,7 @@ This is an MVP. The rules, skills, subagents and hook cover a generic Go HTTP se
 ## Docs
 
 18 articles walking through every mechanism, in Chinese: [docs/guide/](docs/guide/), or read them online on [Feishu](https://ncnhrkchbfwf.feishu.cn/wiki/SVHxwROhfiYBE2k2I35cJ0IUnYe).
+
+## License
+
+MIT, except `.ai/skills/go-development/`. That directory is vendored from [netresearch/go-development-skill](https://github.com/netresearch/go-development-skill): MIT for the code and scripts, CC-BY-SA-4.0 for the 20 reference documents, copyright Netresearch DTT GmbH. Modify those documents and they stay under CC-BY-SA-4.0 with attribution. The pinned version and per-file checksums live in its `SOURCE.md`. Delete the directory if you would rather not carry a share-alike obligation.
