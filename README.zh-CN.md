@@ -53,12 +53,16 @@ Agent 可以直接跑同一件事：Claude Code 用 `/init-project`，Codex 用 
 | 行为准则单源 | `.ai/ai-rules.md`，符号链接为 `CLAUDE.md` 和 `AGENTS.md` |
 | Spec 文档 | `Specs/requirements/`（人工）、`Specs/technical/`（Agent） |
 | 门禁 | `Makefile`、`cmd/spec-check`、`scripts/smoke.sh` |
-| Skill | `.ai/skills/`：`init-project`、`spec-coding-init`、`api-verify`、`sync-ai-assets`、`spec-graph-workflow` |
+| Skill | `.ai/skills/`：`init-project`、`spec-coding-init`、`api-verify`、`sync-ai-assets`、`spec-graph-workflow`，外加内置的 [`go-development`](https://github.com/netresearch/go-development-skill) |
 | Subagent | `.claude/agents/`：`spec-reviewer`（只读）、`spec-implementer` |
 | Hook | `PostToolUse` → `scripts/check-format.sh`，每次编辑后做 gofmt 反馈 |
 | MCP | 不需要任何 MCP；Postman MCP 可选，且从不参与门禁 |
 
-`.ai/skills/go-development/` 是内置的第三方 Skill（netresearch，MIT AND CC-BY-SA-4.0）。它的 `SOURCE.md` 固定了版本、记录了每个文件的校验和，并列出与本地规则冲突的五处及处理方式。
+### 内置的第三方 Skill
+
+`.ai/skills/go-development/` 不是这里写的，它原样复制自 [netresearch/go-development-skill](https://github.com/netresearch/go-development-skill)，固定在 1.15.1 版本，补的是本模板不重复讲的 Go 实践：测试分层、`-race` 常见坑、`slog`、lint、fuzz、依赖升级。
+
+该目录的 `SOURCE.md` 就是引用记录：上游地址、固定版本、26 个文件的 SHA-256（任何人都能重算核对有没有被改动）、许可证拆分，以及上游建议与 `.ai/ai-rules.md` 冲突的五处。这五处一律以本地规则为准。升级的做法是整目录替换并重写 `SOURCE.md`，不要就地打补丁，否则校验和就失去意义。
 
 ## 演示版本
 

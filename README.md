@@ -53,12 +53,16 @@ Two steps stop for a human. Step 4 needs the plan confirmed before any code is w
 | Rules, single source | `.ai/ai-rules.md`, symlinked as `CLAUDE.md` and `AGENTS.md` |
 | Spec docs | `Specs/requirements/` (human), `Specs/technical/` (agent) |
 | Gates | `Makefile`, `cmd/spec-check`, `scripts/smoke.sh` |
-| Skills | `.ai/skills/`: `init-project`, `spec-coding-init`, `api-verify`, `sync-ai-assets`, `spec-graph-workflow` |
+| Skills | `.ai/skills/`: `init-project`, `spec-coding-init`, `api-verify`, `sync-ai-assets`, `spec-graph-workflow`, plus vendored [`go-development`](https://github.com/netresearch/go-development-skill) |
 | Subagents | `.claude/agents/`: `spec-reviewer` (read-only), `spec-implementer` |
 | Hook | `PostToolUse` → `scripts/check-format.sh`, gofmt feedback after every edit |
 | MCP | none required; Postman MCP is optional and never gates anything |
 
-`.ai/skills/go-development/` is a vendored third-party skill (netresearch, MIT AND CC-BY-SA-4.0). Its `SOURCE.md` pins the version, records per-file checksums, and lists the five places where it conflicts with the local rules and loses.
+### Vendored skill
+
+`.ai/skills/go-development/` is not written here. It is copied unmodified from [netresearch/go-development-skill](https://github.com/netresearch/go-development-skill), pinned at version 1.15.1, and covers Go practice this template does not restate: test layering, common `-race` traps, `slog`, linting, fuzzing, dependency upgrades.
+
+`SOURCE.md` in that directory is the citation record: upstream URL, pinned version, SHA-256 for all 26 files so anyone can re-verify nothing drifted, the licence split, and the five points where upstream advice contradicts `.ai/ai-rules.md`. On every one of those five, the local rules win. Upgrading means replacing the whole directory and rewriting `SOURCE.md`; never patch it in place, or the checksums stop meaning anything.
 
 ## Demo version
 
