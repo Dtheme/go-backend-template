@@ -119,25 +119,8 @@ Hook 的脚本行为已经探针验证：放入未格式化的 `internal/hookpro
 
 用法是：先按模板跑通一个真实版本，记下哪一步靠人反复提醒才没做错，再把那一步固化成规则或 Skill。`.ai/skills/` 与 `.claude/agents/` 的目录结构、`spec-check` 的规则写法、`spec-graph` 的守卫合同都可以直接照着扩展。
 
-## 后续 16 篇各回答什么问题
+## 后面还有什么
 
-| 篇 | 回答的问题 |
-| --- | --- |
-| `Rules 落地：ai-rules.md 单源怎样被两个 Agent 共读并被机器守住` | 一份行为准则怎样通过符号链接与 `spec-check` 规则同时约束 Claude Code 和 Codex |
-| `Spec 落地：requirements 与 technical 两个目录各归谁维护` | 需求、协议、技术方案、交付状态块的所有权与机器核对 |
-| `spec-init：一个新版本怎样从人工需求开始` | `scripts/spec-init.sh` 的前提、产物、拒绝条件与退出码 |
-| `版本开发工作流：七个 Step 每一步的输入、输出和停止条件` | 从读取上下文到维护文档，哪一步必须停下来等用户 |
-| `API 契约设计：接口在编码前怎样被冻结` | Step 3 契约、`协议与数据.md` 的约定与破坏性变更的判断 |
-| `Command 落地：make 目标、脚本与 spec-check 各自守什么` | `Makefile` 每个目标的内容与 `spec-check` 十条规则 |
-| `测试分层：单元、集成、race、冒烟各自证明什么` | 四层测试的构建标签、运行命令与各自能证明的范围 |
-| `验证闭环：自验通过之后为什么还要等用户确认` | 6.1、6.2、6.3 与 `user_acceptance` 字段的关系 |
-| `Skill 落地：五个自研 Skill 分别接管生命周期的哪个时刻` | `init-project`、`spec-coding-init`、`api-verify`、`sync-ai-assets`、`spec-graph-workflow` 各自的触发点 |
-| `第三方 Skill：go-development 是怎样被引入、约束和升级的` | `SOURCE.md` 记录的来源、许可证、完整性摘要、冲突处理与升级方式 |
-| `Subagent 与 Hook 落地：只读审查、委派实现与编辑后的格式检查` | 两个 Subagent 的交接合同与 `PostToolUse` Hook 的边界 |
-| `MCP 落地：为什么必需门禁不依赖任何 MCP` | Postman MCP 的可选定位与能力前置校验 |
-| `代码规范与日常修改：不走版本流程的改动怎样不破坏一致性` | 包组织、错误处理、DRY 红线与日常修改的最小流程 |
-| `工程骨架：cmd 与 internal 里每个文件在做什么` | 入口、配置、HTTP 层、领域层、存储层与三个工具包的逐文件说明 |
-| `Spec + Graph 理论：Loop 管局部收敛，Graph 管结论是否仍然有效` | 为什么需要在 Loop 之上再加一层证据失效判断 |
-| `Spec + Graph 落地：spec-graph CLI、graph.json 与 Subagent 编排` | 六个阶段、七类事件、守卫、摘要规则、退出码与 Controller 编排 |
+其余各篇每篇只展开一个落点：规则单源、Spec 两侧目录、七个 Step、四道门禁、Skill 与 Subagent、可选的 Graph，最后一章把这些概念逐个拆开讲怎么往自己项目上扩。哪一章有哪些篇、各讲一句话，看对应章节的首页；按角色的阅读顺序、以及每篇会带你打开哪些模板文件，看「阅读指南」。
 
-本篇能回答三件事：这个模板守住了什么，谁在守，`1.0.0` 为什么停在 `verifying`。后面每一篇只打开其中一个落点。
+本篇能回答三件事：这个模板守住了什么，谁在守，`1.0.0` 为什么停在 `verifying`。

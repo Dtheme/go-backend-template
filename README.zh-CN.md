@@ -42,7 +42,7 @@ Agent 可以直接跑同一件事：Claude Code 用 `/init-project`，Codex 用 
 4. `make spec-init VERSION=x.y.z`，填完方案，**等用户确认**，把 `stage` 改成 `implementing`。
 5. 先写失败测试，再写让它通过的最小实现。
 6. 跑四道门禁加 `api-verify` Skill，然后**等用户验收**。
-7. 把真实结果回写进技术方案、技术讲解、Postman 集合和冒烟脚本。
+7. 把真实结果回写进技术方案、技术讲解、Postman 集合和冒烟脚本，并把下个会话会重新踩一遍的坑记进 `.ai/memory.md`。
 
 两处必须停下来等人。Step 4 不确认就不能动代码，Step 6 不验收就不算交付。`user_acceptance` 还是 `pending` 时 `spec-check` 会拒绝 `stage: delivered`，这道停顿由命令保证，不靠自觉。
 
@@ -51,6 +51,7 @@ Agent 可以直接跑同一件事：Claude Code 用 `/init-project`，Codex 用 
 | 机制 | 位置 |
 | --- | --- |
 | 行为准则单源 | `.ai/ai-rules.md`，符号链接为 `CLAUDE.md` 和 `AGENTS.md` |
+| 跨会话记忆 | `.ai/memory.md`：已验证的事实、踩过的坑、待验证；`spec-check` 要求这个文件和它的三个章节标题 |
 | Spec 文档 | `Specs/requirements/`（人工）、`Specs/technical/`（Agent） |
 | 门禁 | `Makefile`、`cmd/spec-check`、`scripts/smoke.sh` |
 | Skill | `.ai/skills/`：`init-project`、`spec-coding-init`、`api-verify`、`sync-ai-assets`、`spec-graph-workflow`，外加内置的 [`go-development`](https://github.com/netresearch/go-development-skill) |
@@ -85,7 +86,7 @@ GET  /v1/notes/{id}  200，或 404 {"error":{"code":"not_found","message":"note 
 
 ## 文档
 
-详解：[docs/guide/](docs/guide/)，在线阅读版见 [飞书文档](https://ncnhrkchbfwf.feishu.cn/wiki/SVHxwROhfiYBE2k2I35cJ0IUnYe)。
+25 篇详解，外加阅读指南与速查表：[docs/guide/](docs/guide/)，在线阅读版见 [飞书文档](https://ncnhrkchbfwf.feishu.cn/wiki/SVHxwROhfiYBE2k2I35cJ0IUnYe)。
 
 ## 许可证
 
