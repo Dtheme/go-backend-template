@@ -62,8 +62,6 @@ Two steps stop for a human. Step 4 needs the plan confirmed before any code is w
 
 `.ai/skills/go-development/` is not written here. It is copied unmodified from [netresearch/go-development-skill](https://github.com/netresearch/go-development-skill), pinned at version 1.15.1, and covers Go practice this template does not restate: test layering, common `-race` traps, `slog`, linting, fuzzing, dependency upgrades.
 
-`SOURCE.md` in that directory is the citation record: upstream URL, pinned version, SHA-256 for all 26 files so anyone can re-verify nothing drifted, the licence split, and the five points where upstream advice contradicts `.ai/ai-rules.md`. On every one of those five, the local rules win. Upgrading means replacing the whole directory and rewriting `SOURCE.md`; never patch it in place, or the checksums stop meaning anything.
-
 ## Demo version
 
 `1.0.0` implements two endpoints over in-memory storage so the workflow has something real to run against:
