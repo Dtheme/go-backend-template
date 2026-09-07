@@ -1,0 +1,279 @@
+{
+  "version": "1.0.0",
+  "revision": 46,
+  "stage": "verifying",
+  "inputs": {
+    "files": {
+      "Specs/requirements/1.0.0/需求.md": "5ce439928c9fef978535d284e589447572e7a2885006ed6b7bf519df08a3dfd1",
+      "Specs/requirements/协议与数据.md": "ab6f7068fd5b0146f0cf952274adf79361ed886c640270e76d28fb109150b7c6",
+      "Specs/technical/1.0.0/技术方案.md": "aac18b980b454138f7d323c1b5ae904a46ade567b7af057fcf2dcb9a18b13cfd"
+    },
+    "digest": "1c1fd583b8f5e6748aacbe0a091465aca65e05c3bbc5b88964d1d9f618523746"
+  },
+  "candidate": {
+    "files": {
+      "Makefile": "3375d610e8fd6e9b0e72f321b71d316b0b570e100c2ffda0f3e6b78b9d4a894b",
+      "api/postman/go-backend-template.postman_collection.json": "807a24f91f26600472279182d4bfaa40aca039a7869d5411c9ada93d5811d241",
+      "cmd/api/main.go": "326a16fea76596fecdbcdd7a8f6fa9962309412bfb79fe95a7049c54c405c039",
+      "cmd/spec-check/main.go": "511d45bb0888ab3a240e0b0cf49159ca9af3ac8a5e7f491d4b1cd5e50110e00f",
+      "cmd/spec-check/main_test.go": "addbe93577e3a5a07b0c1c5d4e813c3666de86b88d7b8505e6dfa0612120ca3d",
+      "cmd/spec-graph/main.go": "a1f8474ce27ea9569c08bcfdbf4efb7e2de5101efc6a9cc435bc228987832cdb",
+      "cmd/spec-graph/main_test.go": "526a3445a9a18f5182b7738aeeaa6564705305805eab6ccd245b4846b28f31a0",
+      "go.mod": "f3df9fc520ddec541924dfa035d58e574534c2ca157994286b84b6c9c3ecc35e",
+      "internal/config/config.go": "7dd29e51b5459d03de6e39f0d3508a99989cfc8445850f1437a908f8efafeca5",
+      "internal/config/config_test.go": "6830ace09be51e77bc3b4aac20e58a5e2339004dc39597f9a2acf37b2d69a44f",
+      "internal/httpapi/handler.go": "5d1680fd42d339f6188a846c393e74eb5f96af534ef05aa5d83eb8a248ca535f",
+      "internal/httpapi/handler_test.go": "cf8aafec4f4814833dc31aae6c40688f40d1eba7d7e9c6f1d362a3d12dce8938",
+      "internal/httpapi/helpers_test.go": "03841b2ec2beb6912dd1de015966d306af62725ad4ce7089d5ec0c2cfaaecaca",
+      "internal/httpapi/integration_test.go": "0cce82f726240529f5696b071c54f1ce33736b217070123ae1453e32d91db580",
+      "internal/httpapi/middleware.go": "311cd22d272e2f9307c2125683775f62e55ae811912824d4ed6683f065e91627",
+      "internal/httpapi/notes.go": "4cd5b1387adcf01b48eef0ce8c85be6f374bfb1f9bedaa97887cedc7d531db40",
+      "internal/httpapi/notes_test.go": "89ea695c20664898820b73a68ec4a1ae17b3f4efa5a92c4e977ec7623b9f4b17",
+      "internal/httpapi/response.go": "7622a2bd2267e7ed7aab8af51a2edaad3f8c4d7b5646c6908e66d5fba70e3be9",
+      "internal/memstore/store.go": "5bebbcba581f8af14eb8f68f2d7c32924c73e0daef05f5acbd50063fed39ee60",
+      "internal/memstore/store_test.go": "c874db81b4748a4c9f7809776b185df3280e11fb902d3a4f901b95a65bf81e00",
+      "internal/note/note.go": "9b82469a8049e262c105d4dd5ef6495bc4125e7663c2a28cc90f6cb99da5e14a",
+      "internal/note/service_test.go": "bb92583a98076876f9ae170e926d5c241f032936b26b099476c14aa962f0f95d",
+      "internal/speccheck/speccheck.go": "0805ef28201b341a2c508dfbb39147bbfa21e1661d9f06970be3defd2b8aa655",
+      "internal/speccheck/speccheck_test.go": "e410cfc372f34352e10b835c7a7d5bb2c89194df2a4b1cdbb0abe1c3e5c9dff7",
+      "internal/speccheck/versions.go": "40ac70f7d352e010ab5b20383d9d63f523abe24b37472213f967f941cee31cf8",
+      "internal/specdoc/delivery.go": "78a7dd20e5267844e6917b3b71f1a0451c5c199b06b5f63c0f27e0801f16553f",
+      "internal/specdoc/delivery_test.go": "6e2376545544379c1566d619dcbfb067ae17a992635bd4183c9be79a836b9a26",
+      "internal/specdoc/template_probe_test.go": "01d9e94b4c50dd5a46ecd856a26254233989539ed3860df846ae5650ec0731bb",
+      "internal/specgraph/check.go": "c5f89436fb00f4d2bb582b3d96639aca74dc21f33638e4e247581311b99abfb9",
+      "internal/specgraph/digest.go": "38003fdbfd3df0b1979cd5cd176b96a0611d79ccb386d90408225f2486f88d55",
+      "internal/specgraph/graph.go": "df49491efacf5b10b8d15bf380646d3627583f33d1c50425fbec3720447874a0",
+      "internal/specgraph/graph_test.go": "0f43dc0e4fb2f2e678e2e301ca56494c87364e96f1b2db92c2a3e2cb1229a0a6",
+      "internal/specgraph/store.go": "c650faaee50b2704c2343a597a8225f37bf25cbac62e2eb62e98e620627d1f4d",
+      "internal/specgraph/transition.go": "d575cd9016ef65933de0812d6cc4ce0ae63500ce3f79768839c21082dc2693db",
+      "scripts/check-format.sh": "59d4a2b354d3935b0baeffa983c27053442ecdbf20c7f2bf8b23eff7db57a759",
+      "scripts/smoke.sh": "5de05e9417c935ffac3988395d43380c8af9b89aaf29d8180177d7f5386ab111",
+      "scripts/spec-init.sh": "95cceb09cce91cad567bb77b18e2fcf8109f61e95e074021a69b6e919367decd"
+    },
+    "digest": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f"
+  },
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "P2",
+      "status": "verified",
+      "note": "Save 返回 ErrAlreadyExists，不覆盖",
+      "updated_at": "2026-09-07T04:11:30Z"
+    },
+    {
+      "id": "R2",
+      "severity": "P2",
+      "status": "verified",
+      "note": "decodeJSON 拒绝尾随数据",
+      "updated_at": "2026-09-07T04:11:30Z"
+    },
+    {
+      "id": "R3",
+      "severity": "P3",
+      "status": "verified",
+      "note": "风险条目已改写",
+      "updated_at": "2026-09-07T04:11:30Z"
+    },
+    {
+      "id": "R4",
+      "severity": "P3",
+      "status": "verified",
+      "note": "模块设计补 logger、测试计划回写用例名",
+      "updated_at": "2026-09-07T04:11:30Z"
+    },
+    {
+      "id": "R5",
+      "severity": "P2",
+      "status": "verified",
+      "note": "技术讲解与 README 已同步",
+      "updated_at": "2026-09-07T04:11:30Z"
+    },
+    {
+      "id": "R6",
+      "severity": "P3",
+      "status": "verified",
+      "note": "用例名已改为 TestService_Create_SaveAlreadyExists",
+      "updated_at": "2026-09-07T04:11:30Z"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "check",
+      "candidate": "04a68378d8b41b04bffc39bffa5f7900f582431eaee0261fe2170b49743f7976",
+      "inputs": "15c24a91f1b7b269d03ad511cc552be719f602949c58905fd830c7b4370142fd",
+      "exit_code": 0,
+      "log_sha256": "25b327541ebfacabc4442e7e27fcb160c5b6695b8a96df80de3fa78e597c0b10",
+      "recorded_at": "2026-09-07T03:58:18Z"
+    },
+    {
+      "kind": "test-integration",
+      "candidate": "04a68378d8b41b04bffc39bffa5f7900f582431eaee0261fe2170b49743f7976",
+      "inputs": "15c24a91f1b7b269d03ad511cc552be719f602949c58905fd830c7b4370142fd",
+      "exit_code": 0,
+      "log_sha256": "881468dbef0f768ed3b6d9563639211af5bbfdada439014d3f0d6d2cd0268f07",
+      "recorded_at": "2026-09-07T03:58:23Z"
+    },
+    {
+      "kind": "test-race",
+      "candidate": "04a68378d8b41b04bffc39bffa5f7900f582431eaee0261fe2170b49743f7976",
+      "inputs": "15c24a91f1b7b269d03ad511cc552be719f602949c58905fd830c7b4370142fd",
+      "exit_code": 0,
+      "log_sha256": "a7f7c7948be808d6e0f7309440121dfc72d9e5c0a439e54140977761fffe7a44",
+      "recorded_at": "2026-09-07T03:58:29Z"
+    },
+    {
+      "kind": "smoke",
+      "candidate": "04a68378d8b41b04bffc39bffa5f7900f582431eaee0261fe2170b49743f7976",
+      "inputs": "15c24a91f1b7b269d03ad511cc552be719f602949c58905fd830c7b4370142fd",
+      "exit_code": 0,
+      "log_sha256": "2449b3d293f81b495afff930b4994950757420429a1a0b4710d6d0706d5447f9",
+      "recorded_at": "2026-09-07T03:58:31Z"
+    },
+    {
+      "kind": "api-verify",
+      "candidate": "04a68378d8b41b04bffc39bffa5f7900f582431eaee0261fe2170b49743f7976",
+      "inputs": "15c24a91f1b7b269d03ad511cc552be719f602949c58905fd830c7b4370142fd",
+      "exit_code": 0,
+      "log_sha256": "8bcc3c033475515b4beba93ff0b17630c4ef6bc444376d10ffa78e30ec09d6a4",
+      "recorded_at": "2026-09-07T03:59:37Z"
+    },
+    {
+      "kind": "review",
+      "candidate": "04a68378d8b41b04bffc39bffa5f7900f582431eaee0261fe2170b49743f7976",
+      "inputs": "15c24a91f1b7b269d03ad511cc552be719f602949c58905fd830c7b4370142fd",
+      "exit_code": 1,
+      "log_sha256": "3b95485e1d17ed65c9934af977f1e1b33641b7555e4972beb4ce240ae522449e",
+      "recorded_at": "2026-09-07T04:04:35Z"
+    },
+    {
+      "kind": "check",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "e5636895cabde51be04de0293b722893208ebbb1c51fd8f20bf6be5076cde55a",
+      "exit_code": 0,
+      "log_sha256": "863c680ba1bcc28206fe78c4b559b25f9d7c590ad1b8c7131a0e6e96cfbec5a5",
+      "recorded_at": "2026-09-07T04:07:25Z"
+    },
+    {
+      "kind": "test-integration",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "e5636895cabde51be04de0293b722893208ebbb1c51fd8f20bf6be5076cde55a",
+      "exit_code": 0,
+      "log_sha256": "863d9cf267de7a7a9c5e803e84641b229c4a2a591eb84b66bac3fc9342dae367",
+      "recorded_at": "2026-09-07T04:07:51Z"
+    },
+    {
+      "kind": "test-race",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "e5636895cabde51be04de0293b722893208ebbb1c51fd8f20bf6be5076cde55a",
+      "exit_code": 0,
+      "log_sha256": "c8acc84bdb5ec038b1e476755e75807541889a42be83d02e1fa2f46da40d5d28",
+      "recorded_at": "2026-09-07T04:07:54Z"
+    },
+    {
+      "kind": "smoke",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "e5636895cabde51be04de0293b722893208ebbb1c51fd8f20bf6be5076cde55a",
+      "exit_code": 0,
+      "log_sha256": "f602525f84f96d44d961e4ba5d036a91c2f6dd9fe23637db9ee1dece6ba294ba",
+      "recorded_at": "2026-09-07T04:07:56Z"
+    },
+    {
+      "kind": "api-verify",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "e5636895cabde51be04de0293b722893208ebbb1c51fd8f20bf6be5076cde55a",
+      "exit_code": 0,
+      "log_sha256": "47ffbb218468107bfa032e1ab911958deab049e24a2656b0a81d252a1d2e676d",
+      "recorded_at": "2026-09-07T04:07:57Z"
+    },
+    {
+      "kind": "review",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "1c1fd583b8f5e6748aacbe0a091465aca65e05c3bbc5b88964d1d9f618523746",
+      "exit_code": 0,
+      "log_sha256": "1f1413b5a05a644f424bc50c6a7bda7b47cf1e210948276cce89a8d61a81c120",
+      "recorded_at": "2026-09-07T04:11:30Z"
+    },
+    {
+      "kind": "check",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "1c1fd583b8f5e6748aacbe0a091465aca65e05c3bbc5b88964d1d9f618523746",
+      "exit_code": 0,
+      "log_sha256": "45c39b8d872802e51b23c3559c8a4cbc291015ad82e830b08f49d0a96ff7bd44",
+      "recorded_at": "2026-09-07T04:11:32Z"
+    },
+    {
+      "kind": "test-integration",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "1c1fd583b8f5e6748aacbe0a091465aca65e05c3bbc5b88964d1d9f618523746",
+      "exit_code": 0,
+      "log_sha256": "cc31c9997b4285985612537f9c16239aa922289b364e0890a6661256bf0cc8bc",
+      "recorded_at": "2026-09-07T04:11:33Z"
+    },
+    {
+      "kind": "test-race",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "1c1fd583b8f5e6748aacbe0a091465aca65e05c3bbc5b88964d1d9f618523746",
+      "exit_code": 0,
+      "log_sha256": "ba2e7825af07def0fa2bc35a03969be9a1e64fb9d0ae138ea1e1b53fd5c9b451",
+      "recorded_at": "2026-09-07T04:11:36Z"
+    },
+    {
+      "kind": "smoke",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "1c1fd583b8f5e6748aacbe0a091465aca65e05c3bbc5b88964d1d9f618523746",
+      "exit_code": 0,
+      "log_sha256": "aa83aed3ff4f17b57486f3071553c81f74dd087fd1339223a75b091d4b795066",
+      "recorded_at": "2026-09-07T04:11:37Z"
+    },
+    {
+      "kind": "api-verify",
+      "candidate": "2d03ec4f1c565f9c4c1901fe4658d6f659d22f85f3f6daf83822438be27f1d3f",
+      "inputs": "1c1fd583b8f5e6748aacbe0a091465aca65e05c3bbc5b88964d1d9f618523746",
+      "exit_code": 0,
+      "log_sha256": "856c3b8b2f3a1ee329395f920efcd375e18eecad4ada068e2b82583c8d9528e3",
+      "recorded_at": "2026-09-07T04:11:38Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt-1",
+      "type": "plan_confirmed",
+      "from": "planning",
+      "to": "implementing",
+      "revision": 1,
+      "at": "2026-09-07T03:47:34Z"
+    },
+    {
+      "id": "evt-3",
+      "type": "implementation_done",
+      "from": "implementing",
+      "to": "reviewing",
+      "revision": 3,
+      "at": "2026-09-07T03:58:18Z"
+    },
+    {
+      "id": "evt-14",
+      "type": "review_failed",
+      "from": "reviewing",
+      "to": "fixing",
+      "revision": 14,
+      "at": "2026-09-07T04:04:35Z"
+    },
+    {
+      "id": "evt-26",
+      "type": "fix_done",
+      "from": "fixing",
+      "to": "reviewing",
+      "revision": 26,
+      "at": "2026-09-07T04:07:25Z"
+    },
+    {
+      "id": "evt-41",
+      "type": "review_passed",
+      "from": "reviewing",
+      "to": "verifying",
+      "revision": 41,
+      "at": "2026-09-07T04:11:30Z"
+    }
+  ]
+}

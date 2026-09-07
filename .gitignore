@@ -1,0 +1,9 @@
+bin/
+*.test
+.DS_Store
+
+# 本仓库需要提交 Claude Code 配置（Hook、Subagent、skills 链接），
+# 覆盖 ~/.gitignore_global 里对 .claude 的整目录忽略。
+!.claude/
+!.claude/**
+.claude/settings.local.json

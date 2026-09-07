@@ -1,0 +1,9 @@
+# Codex Agent 配置
+#
+# 本工程不依赖任何 MCP Server：构建与测试走本地 Go 工具链（make check，含 spec-check），
+# 接口验证走 make smoke / curl / Postman 集合（api/postman/）。
+# Skills 通过 .agents/skills -> ../.ai/skills 符号链接共享，行为准则见 AGENTS.md。
+# Claude Code 的 PostToolUse Hook 与 .claude/agents 下的 Subagent 在 Codex 中没有对应机制：
+# 格式检查依赖 make check，独立审查按 .claude/agents/spec-reviewer.md 正文在新会话中执行。
+
+personality = "friendly"
