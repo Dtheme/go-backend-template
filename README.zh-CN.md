@@ -58,11 +58,11 @@ Agent 可以直接跑同一件事：Claude Code 用 `/init-project`，Codex 用 
 | Hook | `PostToolUse` → `scripts/check-format.sh`，每次编辑后做 gofmt 反馈 |
 | MCP | 不需要任何 MCP；Postman MCP 可选，且从不参与门禁 |
 
-### 内置的第三方 Skill
+### 内置基础 Skill
 
-`.ai/skills/go-development/` 不是这里写的，它原样复制自 [netresearch/go-development-skill](https://github.com/netresearch/go-development-skill)，固定在 1.15.1 版本，补的是本模板不重复讲的 Go 实践：测试分层、`-race` 常见坑、`slog`、lint、fuzz、依赖升级。
+`.ai/skills/go-development/` 语言dev skill来自： [netresearch/go-development-skill](https://github.com/netresearch/go-development-skill)，固定在 1.15.1 版本，补的是本模板不重复讲的 Go 实践：测试分层、`-race` 常见坑、`slog`、lint、fuzz、依赖升级。
 
-该目录的 `SOURCE.md` 就是引用记录：上游地址、固定版本、26 个文件的 SHA-256（任何人都能重算核对有没有被改动）、许可证拆分，以及上游建议与 `.ai/ai-rules.md` 冲突的五处。这五处一律以本地规则为准。升级的做法是整目录替换并重写 `SOURCE.md`，不要就地打补丁，否则校验和就失去意义。
+其他skill可以基于日常开发需要进行补充和完善。
 
 ## 演示版本
 
@@ -85,7 +85,7 @@ GET  /v1/notes/{id}  200，或 404 {"error":{"code":"not_found","message":"note 
 
 ## 文档
 
-18 篇详解：[docs/guide/](docs/guide/)，在线阅读版见 [飞书文档](https://ncnhrkchbfwf.feishu.cn/wiki/SVHxwROhfiYBE2k2I35cJ0IUnYe)。
+详解：[docs/guide/](docs/guide/)，在线阅读版见 [飞书文档](https://ncnhrkchbfwf.feishu.cn/wiki/SVHxwROhfiYBE2k2I35cJ0IUnYe)。
 
 ## 许可证
 
